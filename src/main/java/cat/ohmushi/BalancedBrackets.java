@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Stack;
 
 public class BalancedBrackets {
-    private static Map<Character, Character> openAndClose = Map.of(
+    private final static Map<Character, Character> openAndClose = Map.of(
             '(', ')',
             '[', ']');
 
@@ -29,8 +29,8 @@ public class BalancedBrackets {
                 if (stack.isEmpty())
                     return false;
                 var lastOpenner = stack.pop();
-                var correspondingCloser = openAndClose.get(lastOpenner);
-                if (current != correspondingCloser)
+                var expectedCloser = openAndClose.get(lastOpenner);
+                if (current != expectedCloser)
                     return false;
             }
 
